@@ -1,10 +1,10 @@
-# True Fit – AI Intelligent Candidate Ranker
+True Fit – AI Intelligent Candidate Ranker
 
 An explainable AI-powered recruiting system that ranks candidates the way experienced recruiters do—not by matching keywords, but by understanding job requirements, career history, technical depth, and behavioral signals.
 
 Built for the [Redrob Intelligent Candidate Discovery & Ranking Challenge](https://github.com/) dataset (`candidates.jsonl`, 100K profiles).
 
-## Architecture
+Architecture
 
                     Job Description
                            │
@@ -40,17 +40,23 @@ Built for the [Redrob Intelligent Candidate Discovery & Ranking Challenge](https
                 Explainable Re-ranking
                            │
                            ▼
- Recruiter Dashboard • Analytics • AI Assistant
+    Recruiter Dashboard • Analytics • AI Assistant
 
-## What it does
+Features:
 
 Semantic Job Understanding – Extracts required skills, seniority, leadership expectations, culture fit, and implicit traits from the JD.
-👤 Deep Candidate Understanding – Builds structured candidate profiles from experience, projects, skills, and achievements.
-🔍 Semantic Matching – Matches related skills (e.g., PyTorch → Machine Learning, Kafka → Distributed Systems) instead of relying on exact keywords.
-📊 Multi-Factor Ranking Engine – Scores candidates across multiple recruiter-relevant dimensions.
-💡 Explainable AI – Every ranking includes strengths, gaps, score breakdown, and recruiter-friendly reasoning.
-📈 Interactive Recruiter Dashboard – Streamlit interface with rankings, analytics, filters, candidate comparison, and AI-assisted insights.
-⚡ CPU-Optimized Pipeline – Processes large candidate pools efficiently without requiring GPUs or external APIs.
+
+Deep Candidate Understanding – Builds structured candidate profiles from experience, projects, skills, and achievements.
+
+Semantic Matching – Matches related skills (e.g., PyTorch → Machine Learning, Kafka → Distributed Systems) instead of relying on exact keywords.
+
+Multi-Factor Ranking Engine – Scores candidates across multiple recruiter-relevant dimensions.
+
+Explainable AI – Every ranking includes strengths, gaps, score breakdown, and recruiter-friendly reasoning.
+
+Interactive Recruiter Dashboard – Streamlit interface with rankings, analytics, filters, candidate comparison, and AI-assisted insights.
+
+CPU-Optimized Pipeline – Processes large candidate pools efficiently without requiring GPUs or external APIs.
 
 ## Quick start
 
