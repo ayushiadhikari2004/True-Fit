@@ -1,0 +1,22 @@
+# ⚠️  TODO before submitting: every "TODO_*" value below is a placeholder.
+# Run `python3 scripts/check_submission_ready.py` to verify nothing was missed.
+team_name: "TODO_TEAM_NAME"
+primary_contact:
+  name: "TODO_YOUR_NAME"
+  email: "TODO_you@example.com"
+  phone: "TODO_+91-XXXXXXXXXX"
+github_repository: "TODO_https://github.com/YOUR_USERNAME/redrob-recruiter-ranker"
+sandbox_link: "TODO_https://your-streamlit-app.streamlit.app"
+ai_tools_declared:
+  - Cursor
+compute_environment: "Linux, 16GB RAM, Python 3.11, CPU-only ranking"
+team_members:
+  - name: "TODO_YOUR_NAME"
+    email: "TODO_you@example.com"
+methodology_summary: |
+  Hybrid recruiter-style ranker: structured JD understanding, full-profile feature
+  engineering (career, skills with proficiency/duration, Redrob behavioral signals),
+  honeypot/trap penalties, TF-IDF + local sentence-transformer semantic similarity,
+  and deterministic reasoning generation. Two-pass streaming handles 100K candidates
+  within the 5-minute CPU budget.
+
