@@ -6,46 +6,51 @@ Built for the [Redrob Intelligent Candidate Discovery & Ranking Challenge](https
 
 ## Architecture
 
-Job Description
-        │
-        ▼
-Semantic Job Understanding (skills, traits, culture, seniority)
-        │
-        ▼
-Structured Role Profile
-        │
-        ▼
-Candidate Profile Parser → Knowledge Graph + Recruiter Summary
-        │
-        ▼
-Embeddings + Vector Search (summary-based, not keyword tags)
-        │
-        ▼
-Hybrid Multi-Factor Scoring Engine
-    ├── Technical Fit
-    ├── Domain Experience
-    ├── Leadership
-    ├── Communication
-    ├── Learning Ability
-    ├── Culture Fit
-    ├── Project Relevance
-    └── Behavioral Signals
-        │
-        ▼
-Pseudo Re-Ranking (cross-factor alignment, CPU-only)
-        │
-        ▼
-Explainable AI Reports + Recruiter Dashboard + Chat Assistant
-```
+                    Job Description
+                           │
+                           ▼
+            Semantic Job Understanding
+      (skills, culture, seniority, traits)
+                           │
+                           ▼
+              Structured Role Profile
+                           │
+                           ▼
+          Candidate Profile Understanding
+     (experience, projects, achievements)
+                           │
+                           ▼
+      Recruiter Summary + Knowledge Graph
+                           │
+                           ▼
+     Semantic Search + Hybrid Candidate Retrieval
+                           │
+                           ▼
+        Multi-Factor AI Scoring Engine
+      ├── Technical Fit
+      ├── Domain Expertise
+      ├── Leadership
+      ├── Communication
+      ├── Learning Ability
+      ├── Project Relevance
+      ├── Culture Fit
+      └── Behavioral Signals
+                           │
+                           ▼
+                Explainable Re-ranking
+                           │
+                           ▼
+ Recruiter Dashboard • Analytics • AI Assistant
 
 ## What it does
 
-1. **Semantic Job Understanding** — infers required/nice-to-have skills, seniority, culture, leadership, and traits like *ownership mindset* (not just keyword tags).
-2. **Candidate Understanding** — parses each profile into structured experience, projects, tech stack, achievements, and a recruiter summary used for embeddings.
-3. **Semantic Skill Matching** — maps PyTorch→ML, Kafka→Distributed Systems via skill hierarchy graph.
-4. **Multi-Factor Scoring** — transparent 0–100 scores across 8 dimensions plus final score.
-5. **Explainable AI** — per-candidate strengths (✓), gaps (•), and factor breakdown.
-6. **Recruiter Dashboard** — Streamlit UI with rankings, JD view, candidate drill-down, and a keyword-matched chat assistant over the ranked results (intent-pattern matching, not an LLM — fully offline, no API calls).
+Semantic Job Understanding – Extracts required skills, seniority, leadership expectations, culture fit, and implicit traits from the JD.
+👤 Deep Candidate Understanding – Builds structured candidate profiles from experience, projects, skills, and achievements.
+🔍 Semantic Matching – Matches related skills (e.g., PyTorch → Machine Learning, Kafka → Distributed Systems) instead of relying on exact keywords.
+📊 Multi-Factor Ranking Engine – Scores candidates across multiple recruiter-relevant dimensions.
+💡 Explainable AI – Every ranking includes strengths, gaps, score breakdown, and recruiter-friendly reasoning.
+📈 Interactive Recruiter Dashboard – Streamlit interface with rankings, analytics, filters, candidate comparison, and AI-assisted insights.
+⚡ CPU-Optimized Pipeline – Processes large candidate pools efficiently without requiring GPUs or external APIs.
 
 ## Quick start
 
