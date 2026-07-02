@@ -1,6 +1,6 @@
-# Redrob Intelligent Candidate Ranker
+# True Fit – AI Intelligent Candidate Ranker
 
-AI recruiting system that ranks candidates the way a strong recruiter would — by understanding the **Senior AI Engineer** role at Redrob, reading full profiles (career history, skills, behavioral signals), and avoiding keyword-matching traps.
+An explainable AI-powered recruiting system that ranks candidates the way experienced recruiters do—not by matching keywords, but by understanding job requirements, career history, technical depth, and behavioral signals.
 
 Built for the [Redrob Intelligent Candidate Discovery & Ranking Challenge](https://github.com/) dataset (`candidates.jsonl`, 100K profiles).
 
