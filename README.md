@@ -44,19 +44,19 @@ Architecture
 
 Features:
 
-Semantic Job Understanding – Extracts required skills, seniority, leadership expectations, culture fit, and implicit traits from the JD.
+1. Semantic Job Understanding – Extracts required skills, seniority, leadership expectations, culture fit, and implicit traits from the JD.
 
-Deep Candidate Understanding – Builds structured candidate profiles from experience, projects, skills, and achievements.
+2. Deep Candidate Understanding – Builds structured candidate profiles from experience, projects, skills, and achievements.
 
-Semantic Matching – Matches related skills (e.g., PyTorch → Machine Learning, Kafka → Distributed Systems) instead of relying on exact keywords.
+3. Semantic Matching – Matches related skills (e.g., PyTorch → Machine Learning, Kafka → Distributed Systems) instead of relying on exact keywords.
 
-Multi-Factor Ranking Engine – Scores candidates across multiple recruiter-relevant dimensions.
+4. Multi-Factor Ranking Engine – Scores candidates across multiple recruiter-relevant dimensions.
 
-Explainable AI – Every ranking includes strengths, gaps, score breakdown, and recruiter-friendly reasoning.
+5. Explainable AI – Every ranking includes strengths, gaps, score breakdown, and recruiter-friendly reasoning.
 
-Interactive Recruiter Dashboard – Streamlit interface with rankings, analytics, filters, candidate comparison, and AI-assisted insights.
+6. Interactive Recruiter Dashboard – Streamlit interface with rankings, analytics, filters, candidate comparison, and AI-assisted insights.
 
-CPU-Optimized Pipeline – Processes large candidate pools efficiently without requiring GPUs or external APIs.
+7. CPU-Optimized Pipeline – Processes large candidate pools efficiently without requiring GPUs or external APIs.
 
 ## Quick start
 
@@ -129,36 +129,6 @@ The ranking step is designed to meet hackathon limits:
 
 Pre-computation (first model download) may happen once during setup; the `rank.py` ranking step itself makes no external API calls.
 
-## Project layout
-
-```
-redrob-recruiter-ranker/
-├── rank.py                  # Main CLI — reproduce submission
-├── app.py                   # Streamlit sandbox
-├── validate_submission.py   # CSV format validator
-├── submission_metadata.yaml # Portal metadata — fill in before submitting
-├── requirements.txt
-├── scripts/
-│   └── check_submission_ready.py  # Pre-flight check: run before zipping
-├── data/
-│   ├── sample_candidates.json
-│   └── job_description.docx
-└── src/
-    ├── job_understanding.py   # Semantic JD parser
-    ├── candidate_profile.py   # Structured profile + summary
-    ├── skill_graph.py         # Semantic skill hierarchy
-    ├── multi_factor_scorer.py # 8-factor transparent scoring (hybrid mode)
-    ├── explainer.py           # Why-ranked reports (hybrid mode)
-    ├── chat_assistant.py      # Offline keyword-based recruiter chat — no LLM
-    ├── jd_parser.py           # JD loader, with a baked-in JD fallback
-    ├── feature_engineering.py # Profile + signal features
-    ├── honeypot_detector.py   # Trap detection
-    ├── embeddings.py          # TF-IDF + sentence-transformer similarity
-    ├── hybrid_scorer.py       # Hybrid mode scoring orchestration
-    ├── hybrid_ranker.py       # Hybrid mode end-to-end pipeline
-    ├── rule_scorer.py         # Rule mode scoring — the documented default
-    └── rule_ranker.py         # Rule mode end-to-end pipeline
-```
 
 **Rule mode vs. hybrid mode are two independently-weighted scoring
 philosophies**, not a base/upgrade pair — running both on the same pool
@@ -186,11 +156,6 @@ typically around 2/10. Before picking which one to submit, run:
 python rank.py --candidates ./candidates.jsonl --out ./submission.csv --mode compare --tfidf-only
 ```
 
-This writes rule mode's output to `submission.csv`, hybrid mode's output to
-`submission_hybrid.csv`, and prints a top-10/top-100 overlap report. Treat
-low agreement as a signal to actually read both shortlists and decide which
-one's reasoning you trust more for this JD, not as something to average away.
-
 The hybrid prefilter (the step that cuts the pool to ~2,500 candidates
 before deep/semantic scoring) blends the structured heuristic score with a
 cheap TF-IDF lexical-semantic score against the JD (`prefilter_heuristic_weight`
@@ -199,26 +164,6 @@ candidates who describe their work in plain language before the semantic
 re-rank ever sees them — exactly the keyword-filter trap this system exists
 to avoid — so don't set that weight to 1.0 without re-checking what gets cut.
 
-## Submission
-
-Reproduce the CSV with a single command:
-
-```bash
-python rank.py --candidates ./candidates.jsonl --out ./submission.csv
-```
-
-Before zipping for the portal, run the pre-flight check:
-
-```bash
-python3 scripts/check_submission_ready.py
-```
-
-It catches placeholder values left in `submission_metadata.yaml`, symlinks
-that point outside the repo (these work locally but break for anyone else
-who unzips the project), and junk directories (`.venv/`, `__pycache__/`,
-`output/`) that bloat the zip and shouldn't ship. Fill in
-`submission_metadata.yaml` with your real team details — every placeholder
-is marked with a `TODO_` prefix so it can't be missed.
 
 ## Methodology
 
